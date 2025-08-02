@@ -15,7 +15,7 @@ namespace UdemyCarBook.Persistence.Context
             optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB; initial Catalog=UdemyCarBookDb;integrated Security=true;");
         }
         public DbSet<About> Abouts { get; set; }
-        public DbSet<Banner> Banners { get; set; }
+        public DbSet<Banner> Banners { get; set; }     
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Car> Cars { get; set; }
         public DbSet<CarDescription> CarDescriptions { get; set; }
@@ -30,13 +30,9 @@ namespace UdemyCarBook.Persistence.Context
         public DbSet<Service> Services { get; set; }
         public DbSet<SocialMedia> SocialMedias { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
-        
+        public DbSet<Author> Authors { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
 
-
-
-
-
-
-
+           
     }
 }
