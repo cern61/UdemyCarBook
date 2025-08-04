@@ -1,15 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using UdemyCarBook.Dto.BlogDtos;
-using UdemyCarBook.Dto.TestimonialDtos;
+using UdemyCarBook.Dto.CategoryDtos;
 
 namespace UdemyCarBook.WebUI.ViewComponents.BlogViewComponents
 {
-    public class _GetLast3BlogsWithAuthorListComponentPartial:ViewComponent
+    public class _BlogDetailsCategoryComponentPartial:ViewComponent
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
-        public _GetLast3BlogsWithAuthorListComponentPartial(IHttpClientFactory httpClientFactory)
+        public _BlogDetailsCategoryComponentPartial(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }
@@ -17,14 +16,15 @@ namespace UdemyCarBook.WebUI.ViewComponents.BlogViewComponents
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:7294/api/Blogs/GetLast3BlogsWithAuthorsList");
+            var responseMessage = await client.GetAsync("https://localhost:7294/api/Categories");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<ResultLast3BlogsWithAuthors>>(jsonData);
+                var values = JsonConvert.DeserializeObject<List<ResultCategoryDto>>(jsonData);
                 return View(values);
             }
             return View();
         }
     }
+  
 }

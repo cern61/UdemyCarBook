@@ -1,15 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using UdemyCarBook.Dto.BlogDtos;
-using UdemyCarBook.Dto.TestimonialDtos;
 
 namespace UdemyCarBook.WebUI.ViewComponents.BlogViewComponents
 {
-    public class _GetLast3BlogsWithAuthorListComponentPartial:ViewComponent
+    public class _BlogDetailsRecentBlogsComponentPartial:ViewComponent
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
-        public _GetLast3BlogsWithAuthorListComponentPartial(IHttpClientFactory httpClientFactory)
+        public _BlogDetailsRecentBlogsComponentPartial(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }
