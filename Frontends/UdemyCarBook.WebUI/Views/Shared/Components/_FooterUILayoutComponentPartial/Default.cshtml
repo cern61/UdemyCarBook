@@ -1,10 +1,36 @@
-﻿<footer class="ftco-footer ftco-bg-dark ftco-section">
+﻿@model List<ResultFooterAddressDto>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#btn1').click(function(){
+        swal("Şartlar ve Koşullar", "Şartlar ve Koşul Hükümlerine ofisimizle iletişime geçerek ulaşabilirsiniz.");
+        });
+        $('#btn2').click(function(){
+        swal("Güvenlik", "Sistemimizde kullanılan şifreleme tekniğiyle tüm bilgilerinizi itinayla saklıyoruz.");
+        });
+        $('#btn3').click(function(){
+        swal("Çerez Politikası", "Sizlere daha iyi hizmet sunabilmek amacıyla çerez kullanmmaktayız.");
+        });
+        $('#btn4').click(function(){
+        swal("SSS", "SSS1: Araç yakıtını ben mi karşılıyorum. Hayır, aracınız için yakıt kartı sağlıyoruz.");
+        });
+        $('#btn5').click(function(){
+        swal("Ödeme Yöntemleri", "Aracınızı teslim alma yerinde anında ödeyebilirsiniz.");
+        });
+        $('#btn6').click(function(){
+        swal("Nasıl Çalışır?", "Bizlerle iletişime geçebilirsiniz.");
+        });
+    });
+    </script>
+@foreach(var item in Model){
+<footer class="ftco-footer ftco-bg-dark ftco-section">
     <div class="container">
         <div class="row mb-5">
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2"><a href="#" class="logo">Car<span>book</span></a></h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <h2 class="ftco-heading-2"><a href="#" class="logo">Bİ'<span>ARABA</span></a></h2>
+						<p>@item.Description</p>
                     <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                         <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                         <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -16,11 +42,11 @@
                 <div class="ftco-footer-widget mb-4 ml-md-5">
                     <h2 class="ftco-heading-2">Hızlı Linkler</h2>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="py-2 d-block">Hakkımızda</a></li>
-                        <li><a href="#" class="py-2 d-block">Hizmetlerimiz</a></li>
-                        <li><a href="#" class="py-2 d-block">Şartlar ve Koşullar</a></li>
-                        <li><a href="#" class="py-2 d-block">Güvenlik</a></li>
-                        <li><a href="#" class="py-2 d-block">Çerez Politikası</a></li>
+                        <li><a href="/About/Index/" class="py-2 d-block">Hakkımızda</a></li>
+                        <li><a href="/Car/Index/" class="py-2 d-block">Hizmetlerimiz</a></li>
+                            <li><a href="#"  id="btn1" class="py-2 d-block">Şartlar ve Koşullar</a></li>
+                            <li><a href="#" id="btn2" class="py-2 d-block">Güvenlik</a></li>
+                            <li><a href="#" id="btn3" class="py-2 d-block">Çerez Politikası</a></li>
                     </ul>
                 </div>
             </div>
@@ -28,11 +54,11 @@
                 <div class="ftco-footer-widget mb-4">
                     <h2 class="ftco-heading-2">Müşteri Desteği</h2>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="py-2 d-block">Sıkça Sorulanlar</a></li>
-                        <li><a href="#" class="py-2 d-block">Ödeme Yöntemleri</a></li>
-                        <li><a href="#" class="py-2 d-block">Kiralama</a></li>
-                        <li><a href="#" class="py-2 d-block">Nasıl Çalışır?</a></li>
-                        <li><a href="#" class="py-2 d-block">Bize Ulaşın</a></li>
+                            <li><a href="#" id="btn4" class="py-2 d-block">Sıkça Sorulanlar</a></li>
+                            <li><a href="#" id="btn5" class="py-2 d-block">Ödeme Yöntemleri</a></li>
+                        <li><a href="/CarPricing/Index/" class="py-2 d-block">Kiralama</a></li>
+                            <li><a href="#" id="btn6" class="py-2 d-block">Nasıl Çalışır?</a></li>
+                        <li><a href="/Contact/Index/" class="py-2 d-block">Bize Ulaşın</a></li>
                     </ul>
                 </div>
             </div>
@@ -41,9 +67,9 @@
                     <h2 class="ftco-heading-2">Sorunuz mu var?</h2>
                     <div class="block-23 mb-3">
                         <ul>
-                            <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-                            <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+                                <li><span class="icon icon-map-marker"></span><span class="text">@item.Address</span></li>
+                            <li><span class="icon icon-phone"></span><span class="text">@item.Phone</span></li>
+                            <li><span class="icon icon-envelope"></span><span class="text">@item.Email</span></li>
                         </ul>
                     </div>
                 </div>
@@ -61,7 +87,8 @@
         </div>
     </div>
 </footer>
-
+}
 
 
 <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+
