@@ -15,7 +15,9 @@ namespace UdemyCarBook.WebUI.Areas.Admin.Controllers
         {
             _httpClientFactory = httpClientFactory;
         }
+
         [Route("Index")]
+
 
         public async Task<IActionResult> Index()
         {
