@@ -15,6 +15,7 @@ namespace UdemyCarBook.Persistence.Context
             optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB; initial Catalog=UdemyCarBookDb;integrated Security=true;");
         }
         public DbSet<About> Abouts { get; set; }
+        public DbSet<AppRole> AppRoles { get; set; }
         public DbSet<Banner> Banners { get; set; }     
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Car> Cars { get; set; }
